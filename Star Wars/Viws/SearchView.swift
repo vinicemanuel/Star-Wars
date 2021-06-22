@@ -9,14 +9,25 @@ import SwiftUI
 
 struct SearchView: View {
     @State var searchText: String = ""
+    @State var showDetail: Bool = false
     
     var body: some View {
         NavigationView {
             ScrollView {
+                NavigationLink(
+                    destination: ResultView(),
+                    isActive: self.$showDetail,
+                    label: {})
                 
                 HStack {
-                    TextField("Searh here", text: self.$searchText)
-                        .frame(height: 40, alignment: .center)
+                    TextField("Searh here", text: self.$searchText, onCommit: {
+                        print(self.searchText)
+                        self.searchText = ""
+                        UIApplication.shared.endEditing()
+                        self.showDetail = true
+                    })
+                    .frame(height: 40, alignment: .center)
+                    
                     if self.searchText != "" {
                         Button(action: {
                             self.searchText = ""
@@ -36,7 +47,7 @@ struct SearchView: View {
                 .animation(.default)
 
                 
-                ForEach(0...5, id: \.self) { num in
+                ForEach(0...40, id: \.self) { num in
                     NavigationLink(
                         destination: ResultView(),
                         label: {
