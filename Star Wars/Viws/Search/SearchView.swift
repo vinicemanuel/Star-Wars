@@ -21,6 +21,7 @@ struct SearchView: View {
                 
                 HStack {
                     TextField("Searh here", text: self.$viewModel.searchText, onCommit: {
+                        self.viewModel.saveSearch(query: self.viewModel.searchText)
                         print(self.viewModel.searchText)
                         self.showDetail = true
                         UIApplication.shared.endEditing()
