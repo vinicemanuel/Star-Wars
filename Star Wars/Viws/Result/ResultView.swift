@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ResultView: View {
+    var searchQuery: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(self.searchQuery)
     }
 }
 
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultView()
+        ResultView(searchQuery: "yoda")
     }
 }

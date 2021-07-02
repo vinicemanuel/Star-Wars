@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0915EF84268F3EAA009CC7AD /* SearchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915EF83268F3EAA009CC7AD /* SearchObject.swift */; };
+		0915EF89268F4122009CC7AD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915EF88268F4122009CC7AD /* SearchViewModel.swift */; };
 		09B0A8432682655200962CBB /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0A8422682655200962CBB /* ResultView.swift */; };
 		09B0A8492682681500962CBB /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0A8482682681500962CBB /* UIApplicationExtension.swift */; };
 		09FC9A6B267FD592007F9F79 /* Star_WarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC9A6A267FD592007F9F79 /* Star_WarsApp.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0915EF83268F3EAA009CC7AD /* SearchObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchObject.swift; sourceTree = "<group>"; };
+		0915EF88268F4122009CC7AD /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		09B0A8422682655200962CBB /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		09B0A8482682681500962CBB /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		09FC9A67267FD592007F9F79 /* Star Wars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Star Wars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,11 +41,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09B0A846268267F900962CBB /* Viws */ = {
+		0915EF82268F3E33009CC7AD /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				0915EF83268F3EAA009CC7AD /* SearchObject.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		0915EF87268F410E009CC7AD /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				09FC9A6C267FD592007F9F79 /* SearchView.swift */,
-				09B0A8422682655200962CBB /* ResultView.swift */,
+				0915EF88268F4122009CC7AD /* SearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		09B0A846268267F900962CBB /* Viws */ = {
+			isa = PBXGroup;
+			children = (
+				09B3A30C268F496400EBDADE /* Result */,
+				0915EF87268F410E009CC7AD /* Search */,
 			);
 			path = Viws;
 			sourceTree = "<group>";
@@ -52,6 +73,14 @@
 				09B0A8482682681500962CBB /* UIApplicationExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		09B3A30C268F496400EBDADE /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				09B0A8422682655200962CBB /* ResultView.swift */,
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 		09FC9A5E267FD592007F9F79 = {
@@ -73,6 +102,7 @@
 		09FC9A69267FD592007F9F79 /* Star Wars */ = {
 			isa = PBXGroup;
 			children = (
+				0915EF82268F3E33009CC7AD /* Entity */,
 				09B0A8472682680200962CBB /* Extensions */,
 				09B0A846268267F900962CBB /* Viws */,
 				09FC9A6A267FD592007F9F79 /* Star_WarsApp.swift */,
@@ -160,6 +190,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0915EF89268F4122009CC7AD /* SearchViewModel.swift in Sources */,
+				0915EF84268F3EAA009CC7AD /* SearchObject.swift in Sources */,
 				09FC9A6D267FD592007F9F79 /* SearchView.swift in Sources */,
 				09FC9A6B267FD592007F9F79 /* Star_WarsApp.swift in Sources */,
 				09B0A8492682681500962CBB /* UIApplicationExtension.swift in Sources */,

@@ -8,29 +8,31 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State var searchText: String = ""
     @State var showDetail: Bool = false
+    @StateObject var viewModel = SearchViewModel()
     
     var body: some View {
         NavigationView {
             ScrollView {
                 NavigationLink(
-                    destination: ResultView(),
+                    destination: ResultView(searchQuery: self.viewModel.searchText),
                     isActive: self.$showDetail,
                     label: {})
                 
                 HStack {
-                    TextField("Searh here", text: self.$searchText, onCommit: {
-                        print(self.searchText)
-                        self.searchText = ""
-                        UIApplication.shared.endEditing()
+                    TextField("Searh here", text: self.$viewModel.searchText, onCommit: {
+                        print(self.viewModel.searchText)
                         self.showDetail = true
+                        UIApplication.shared.endEditing()
                     })
                     .frame(height: 40, alignment: .center)
+                    .onTapGesture {
+                        self.viewModel.searchText = ""
+                    }
                     
-                    if self.searchText != "" {
+                    if self.viewModel.searchText != "" {
                         Button(action: {
-                            self.searchText = ""
+                            self.viewModel.searchText = ""
                             UIApplication.shared.endEditing()
                         }, label: {
                             Text("Cancel")
@@ -45,17 +47,12 @@ struct SearchView: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
                 .animation(.default)
-
                 
-                ForEach(0...40, id: \.self) { num in
+                ForEach(self.viewModel.searchs) { search in
                     NavigationLink(
-                        destination: ResultView(),
+                        destination: ResultView(searchQuery: search.query),
                         label: {
-                            HStack {
-                                Text("hello \(num)")
-                                Spacer()
-                            }
-                            .padding()
+                            SearchCell(textLabel: search.query)
                         })
                     Divider()
                         .padding(.leading)
@@ -63,6 +60,17 @@ struct SearchView: View {
             }
             .navigationTitle("Star Wars")
         }
+    }
+}
+
+struct SearchCell: View {
+    var textLabel: String
+    var body: some View {
+        HStack {
+            Text(textLabel)
+            Spacer()
+        }
+        .padding()
     }
 }
 
