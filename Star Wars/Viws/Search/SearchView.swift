@@ -61,6 +61,9 @@ struct SearchView: View {
             }
             .navigationTitle("Star Wars")
         }
+        .onAppear(perform: {
+            self.viewModel.searchText = ""
+        })
     }
 }
 

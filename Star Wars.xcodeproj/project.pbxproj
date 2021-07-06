@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0915EF84268F3EAA009CC7AD /* SearchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915EF83268F3EAA009CC7AD /* SearchObject.swift */; };
 		0915EF89268F4122009CC7AD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915EF88268F4122009CC7AD /* SearchViewModel.swift */; };
+		0981B4622694EEB5008DBFDA /* StarWars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0981B4602694EEB5008DBFDA /* StarWars.xcdatamodeld */; };
+		0981B4662694EF23008DBFDA /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981B4652694EF23008DBFDA /* DatabaseUtil.swift */; };
+		0981B46C2694F236008DBFDA /* SearchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981B46B2694F236008DBFDA /* SearchObject.swift */; };
 		09B0A8432682655200962CBB /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0A8422682655200962CBB /* ResultView.swift */; };
 		09B0A8492682681500962CBB /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0A8482682681500962CBB /* UIApplicationExtension.swift */; };
 		09FC9A6B267FD592007F9F79 /* Star_WarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC9A6A267FD592007F9F79 /* Star_WarsApp.swift */; };
@@ -18,8 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0915EF83268F3EAA009CC7AD /* SearchObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchObject.swift; sourceTree = "<group>"; };
 		0915EF88268F4122009CC7AD /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		0981B4612694EEB5008DBFDA /* StarWars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StarWars.xcdatamodel; sourceTree = "<group>"; };
+		0981B4652694EF23008DBFDA /* DatabaseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
+		0981B46B2694F236008DBFDA /* SearchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchObject.swift; sourceTree = "<group>"; };
 		09B0A8422682655200962CBB /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		09B0A8482682681500962CBB /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		09FC9A67267FD592007F9F79 /* Star Wars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Star Wars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +48,7 @@
 		0915EF82268F3E33009CC7AD /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				0915EF83268F3EAA009CC7AD /* SearchObject.swift */,
+				0981B46B2694F236008DBFDA /* SearchObject.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -56,6 +60,22 @@
 				0915EF88268F4122009CC7AD /* SearchViewModel.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		0981B45F2694EE81008DBFDA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0981B4602694EEB5008DBFDA /* StarWars.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0981B4642694EF12008DBFDA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0981B4652694EF23008DBFDA /* DatabaseUtil.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		09B0A846268267F900962CBB /* Viws */ = {
@@ -102,6 +122,8 @@
 		09FC9A69267FD592007F9F79 /* Star Wars */ = {
 			isa = PBXGroup;
 			children = (
+				0981B4642694EF12008DBFDA /* Util */,
+				0981B45F2694EE81008DBFDA /* Resources */,
 				0915EF82268F3E33009CC7AD /* Entity */,
 				09B0A8472682680200962CBB /* Extensions */,
 				09B0A846268267F900962CBB /* Viws */,
@@ -190,8 +212,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0981B4662694EF23008DBFDA /* DatabaseUtil.swift in Sources */,
+				0981B4622694EEB5008DBFDA /* StarWars.xcdatamodeld in Sources */,
+				0981B46C2694F236008DBFDA /* SearchObject.swift in Sources */,
 				0915EF89268F4122009CC7AD /* SearchViewModel.swift in Sources */,
-				0915EF84268F3EAA009CC7AD /* SearchObject.swift in Sources */,
 				09FC9A6D267FD592007F9F79 /* SearchView.swift in Sources */,
 				09FC9A6B267FD592007F9F79 /* Star_WarsApp.swift in Sources */,
 				09B0A8492682681500962CBB /* UIApplicationExtension.swift in Sources */,
@@ -384,6 +408,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0981B4602694EEB5008DBFDA /* StarWars.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0981B4612694EEB5008DBFDA /* StarWars.xcdatamodel */,
+			);
+			currentVersion = 0981B4612694EEB5008DBFDA /* StarWars.xcdatamodel */;
+			path = StarWars.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 09FC9A5F267FD592007F9F79 /* Project object */;
 }
