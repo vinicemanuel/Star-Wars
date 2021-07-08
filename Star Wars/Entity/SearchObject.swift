@@ -12,8 +12,8 @@ class SearchObject: Identifiable {
     let query: String
     let timeStamp: Date
     
-    init(query: String) {
+    init(query: String, timeStamp: Date) {
         self.query = query
-        self.timeStamp = Date()
+        self.timeStamp = timeStamp
     }
 }

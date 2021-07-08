@@ -49,7 +49,7 @@ struct SearchView: View {
                 .padding(.horizontal)
                 .animation(.default)
                 
-                ForEach(self.viewModel.searchs) { search in
+                ForEach(self.viewModel.searches) { search in
                     NavigationLink(
                         destination: ResultView(searchQuery: search.query),
                         label: {
