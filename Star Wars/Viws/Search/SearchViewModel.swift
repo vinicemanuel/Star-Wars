@@ -9,19 +9,17 @@ import Foundation
 import Combine
 
 class SearchViewModel: ObservableObject {
+    
     @Published var searches = [SearchObject]()
-    @Published var searchText: String {
-        didSet {
-            self.updateSearches(filter: self.searchText)
-        }
-    }
+    @Published var searchText: String = ""
+    
+    var subscription: AnyCancellable? = nil
     
     init() {
-        self.searchText = ""
-    }
-    
-    private func updateSearches(filter: String = "") {
-        self.searches = DatabaseUtil.shared.loadAllSearches(search: filter)
+        self.subscription = self.$searchText.sink { (value) in
+            print(value)
+            self.searches = DatabaseUtil.shared.loadAllSearches(search: value)
+        }
     }
     
     func saveSearch(query: String) {

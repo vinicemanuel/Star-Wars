@@ -61,6 +61,7 @@ struct SearchView: View {
             }
             .navigationTitle("Star Wars")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear(perform: {
             self.viewModel.searchText = ""
         })
