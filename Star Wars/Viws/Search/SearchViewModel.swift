@@ -9,11 +9,10 @@ import Foundation
 import Combine
 
 class SearchViewModel: ObservableObject {
-    
     @Published var searches = [SearchObject]()
     @Published var searchText: String = ""
     
-    var subscription: AnyCancellable? = nil
+    private var subscription: AnyCancellable? = nil
     
     init() {
         self.subscription = self.$searchText.sink { (value) in

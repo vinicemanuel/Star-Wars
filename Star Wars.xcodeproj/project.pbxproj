@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0915EF89268F4122009CC7AD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915EF88268F4122009CC7AD /* SearchViewModel.swift */; };
+		094F1FED2698BDAD00D8F784 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094F1FEC2698BDAD00D8F784 /* ResultViewModel.swift */; };
 		0981B4622694EEB5008DBFDA /* StarWars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0981B4602694EEB5008DBFDA /* StarWars.xcdatamodeld */; };
 		0981B4662694EF23008DBFDA /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981B4652694EF23008DBFDA /* DatabaseUtil.swift */; };
 		0981B46C2694F236008DBFDA /* SearchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981B46B2694F236008DBFDA /* SearchObject.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		0915EF88268F4122009CC7AD /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		094F1FEC2698BDAD00D8F784 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 		0981B4612694EEB5008DBFDA /* StarWars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StarWars.xcdatamodel; sourceTree = "<group>"; };
 		0981B4652694EF23008DBFDA /* DatabaseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
 		0981B46B2694F236008DBFDA /* SearchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchObject.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				09B0A8422682655200962CBB /* ResultView.swift */,
+				094F1FEC2698BDAD00D8F784 /* ResultViewModel.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				09B64DDD2697690100DED488 /* QueryHistory+CoreDataClass.swift in Sources */,
 				0981B4662694EF23008DBFDA /* DatabaseUtil.swift in Sources */,
 				0981B4622694EEB5008DBFDA /* StarWars.xcdatamodeld in Sources */,
+				094F1FED2698BDAD00D8F784 /* ResultViewModel.swift in Sources */,
 				09B64DDE2697690100DED488 /* QueryHistory+CoreDataProperties.swift in Sources */,
 				0981B46C2694F236008DBFDA /* SearchObject.swift in Sources */,
 				0915EF89268F4122009CC7AD /* SearchViewModel.swift in Sources */,

@@ -15,7 +15,7 @@ struct SearchView: View {
         NavigationView {
             ScrollView {
                 NavigationLink(
-                    destination: ResultView(searchQuery: self.viewModel.searchText),
+                    destination: ResultView(viewModel: ResultViewModel(query: self.viewModel.searchText)),
                     isActive: self.$showDetail,
                     label: {})
                 
@@ -51,7 +51,7 @@ struct SearchView: View {
                 
                 ForEach(self.viewModel.searches) { search in
                     NavigationLink(
-                        destination: ResultView(searchQuery: search.query),
+                        destination: ResultView(viewModel: ResultViewModel(query: search.query)),
                         label: {
                             SearchCell(textLabel: search.query)
                         })
@@ -60,6 +60,7 @@ struct SearchView: View {
                 }
             }
             .navigationTitle("Star Wars")
+            .padding(.vertical)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear(perform: {

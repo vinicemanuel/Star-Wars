@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ResultView: View {
-    var searchQuery: String
+    @StateObject var viewModel: ResultViewModel
     
     var body: some View {
-        Text(self.searchQuery)
+        Text(self.viewModel.query)
     }
 }
 
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultView(searchQuery: "yoda")
+        ResultView(viewModel: ResultViewModel(query: "yoda"))
     }
 }
