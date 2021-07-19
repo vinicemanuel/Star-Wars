@@ -12,6 +12,9 @@ struct ResultView: View {
     
     var body: some View {
         Text(self.viewModel.query)
+            .onAppear(perform: {
+                self.viewModel.makeRequests()
+            })
     }
 }
 
