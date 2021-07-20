@@ -12,6 +12,10 @@
 		0981B4622694EEB5008DBFDA /* StarWars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0981B4602694EEB5008DBFDA /* StarWars.xcdatamodeld */; };
 		0981B4662694EF23008DBFDA /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981B4652694EF23008DBFDA /* DatabaseUtil.swift */; };
 		0981B46C2694F236008DBFDA /* SearchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981B46B2694F236008DBFDA /* SearchObject.swift */; };
+		098AEB2A26A7458500642D62 /* StarWarsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098AEB2926A7458500642D62 /* StarWarsQuery.swift */; };
+		098AEB2D26A7467200642D62 /* PeopleQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098AEB2C26A7467200642D62 /* PeopleQuery.swift */; };
+		098AEB3126A7473F00642D62 /* ResultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098AEB3026A7473F00642D62 /* ResultListView.swift */; };
+		098AEB3426A7475000642D62 /* ResultListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098AEB3326A7475000642D62 /* ResultListViewModel.swift */; };
 		09B0A8432682655200962CBB /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0A8422682655200962CBB /* ResultView.swift */; };
 		09B0A8492682681500962CBB /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0A8482682681500962CBB /* UIApplicationExtension.swift */; };
 		09B64DDD2697690100DED488 /* QueryHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B64DDB2697690100DED488 /* QueryHistory+CoreDataClass.swift */; };
@@ -28,6 +32,10 @@
 		0981B4612694EEB5008DBFDA /* StarWars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StarWars.xcdatamodel; sourceTree = "<group>"; };
 		0981B4652694EF23008DBFDA /* DatabaseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
 		0981B46B2694F236008DBFDA /* SearchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchObject.swift; sourceTree = "<group>"; };
+		098AEB2926A7458500642D62 /* StarWarsQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsQuery.swift; sourceTree = "<group>"; };
+		098AEB2C26A7467200642D62 /* PeopleQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuery.swift; sourceTree = "<group>"; };
+		098AEB3026A7473F00642D62 /* ResultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListView.swift; sourceTree = "<group>"; };
+		098AEB3326A7475000642D62 /* ResultListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListViewModel.swift; sourceTree = "<group>"; };
 		09B0A8422682655200962CBB /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		09B0A8482682681500962CBB /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		09B64DDB2697690100DED488 /* QueryHistory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueryHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -54,9 +62,10 @@
 		0915EF82268F3E33009CC7AD /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				09B64DDB2697690100DED488 /* QueryHistory+CoreDataClass.swift */,
-				09B64DDC2697690100DED488 /* QueryHistory+CoreDataProperties.swift */,
+				098AEB2826A7455800642D62 /* DB */,
 				0981B46B2694F236008DBFDA /* SearchObject.swift */,
+				098AEB2926A7458500642D62 /* StarWarsQuery.swift */,
+				098AEB2C26A7467200642D62 /* PeopleQuery.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -86,6 +95,24 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		098AEB2826A7455800642D62 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				09B64DDB2697690100DED488 /* QueryHistory+CoreDataClass.swift */,
+				09B64DDC2697690100DED488 /* QueryHistory+CoreDataProperties.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		098AEB2F26A7472700642D62 /* ResultList */ = {
+			isa = PBXGroup;
+			children = (
+				098AEB3026A7473F00642D62 /* ResultListView.swift */,
+				098AEB3326A7475000642D62 /* ResultListViewModel.swift */,
+			);
+			path = ResultList;
+			sourceTree = "<group>";
+		};
 		09B0A846268267F900962CBB /* Viws */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +133,7 @@
 		09B3A30C268F496400EBDADE /* Result */ = {
 			isa = PBXGroup;
 			children = (
+				098AEB2F26A7472700642D62 /* ResultList */,
 				09B0A8422682655200962CBB /* ResultView.swift */,
 				094F1FEC2698BDAD00D8F784 /* ResultViewModel.swift */,
 			);
@@ -221,17 +249,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				098AEB2D26A7467200642D62 /* PeopleQuery.swift in Sources */,
+				098AEB3426A7475000642D62 /* ResultListViewModel.swift in Sources */,
 				09B64DDD2697690100DED488 /* QueryHistory+CoreDataClass.swift in Sources */,
 				0981B4662694EF23008DBFDA /* DatabaseUtil.swift in Sources */,
 				0981B4622694EEB5008DBFDA /* StarWars.xcdatamodeld in Sources */,
 				094F1FED2698BDAD00D8F784 /* ResultViewModel.swift in Sources */,
 				09B64DDE2697690100DED488 /* QueryHistory+CoreDataProperties.swift in Sources */,
 				0981B46C2694F236008DBFDA /* SearchObject.swift in Sources */,
+				098AEB3126A7473F00642D62 /* ResultListView.swift in Sources */,
 				0915EF89268F4122009CC7AD /* SearchViewModel.swift in Sources */,
 				09FC9A6D267FD592007F9F79 /* SearchView.swift in Sources */,
 				09FC9A6B267FD592007F9F79 /* Star_WarsApp.swift in Sources */,
 				09B0A8492682681500962CBB /* UIApplicationExtension.swift in Sources */,
 				09B0A8432682655200962CBB /* ResultView.swift in Sources */,
+				098AEB2A26A7458500642D62 /* StarWarsQuery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

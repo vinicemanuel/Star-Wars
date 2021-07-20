@@ -18,56 +18,31 @@ enum QueryType: String {
 }
 
 class ResultViewModel: ObservableObject {
-    @Published var planets: [String] = [String]()
-    @Published var people: [String] = [String]()
-    @Published var films: [String] = [String]()
-    @Published var species: [String] = [String]()
-    @Published var vehicles: [String] = [String]()
-    @Published var starships: [String] = [String]()
-    
-    private let baseURL = "https://swapi.dev/api/"
-    private var subscriptions = Set<AnyCancellable>()
+    @Published var planetsViewMode: ResultListViewModel
+    @Published var peopleViewMode: ResultListViewModel
+    @Published var filmsViewMode: ResultListViewModel
+    @Published var speciesViewMode: ResultListViewModel
+    @Published var vehiclesViewMode: ResultListViewModel
+    @Published var starshipsViewMode: ResultListViewModel
     
     let query: String
     
     init(query: String) {
         self.query = query
+        self.planetsViewMode = ResultListViewModel(type: .planets, query: query)
+        self.peopleViewMode = ResultListViewModel(type: .people, query: query)
+        self.filmsViewMode = ResultListViewModel(type: .films, query: query)
+        self.speciesViewMode = ResultListViewModel(type: .species, query: query)
+        self.vehiclesViewMode = ResultListViewModel(type: .vehicles, query: query)
+        self.starshipsViewMode = ResultListViewModel(type: .starships, query: query)
     }
     
     func makeRequests() {
-        makeRequest(for: .planets)
-        makeRequest(for: .people)
-        makeRequest(for: .films)
-        makeRequest(for: .species)
-        makeRequest(for: .vehicles)
-        makeRequest(for: .starships)
-    }
-    
-    private func makeRequest(for type: QueryType) {
-        asyncPromiseWith(url: "\(baseURL)\(type.rawValue)/?search=\(self.query.lowercased())")
-            .sink(receiveCompletion: { print($0) }, receiveValue: {
-                    print($0)
-            })
-            .store(in: &subscriptions)
-    }
-    
-    private func asyncPromiseWith(url urlString: String) -> Future<Data, Error> {
-        return Future<Data, Error>() { promise in
-            if let url = URL(string: urlString) {
-                URLSession.shared.dataTaskPublisher(for: url)
-                    .sink(receiveCompletion: { _ in }, receiveValue: {(data, response) in
-                        let response = response as! HTTPURLResponse
-                        
-                        if response.statusCode != 200 {
-                            promise(.failure(NSError(domain: "invalid request", code: response.statusCode, userInfo: nil)))
-                        }
-                        promise(.success(data))
-                    })
-                    .store(in: &self.subscriptions)
-                
-            } else {
-                promise(.failure(NSError(domain: "invalid URL", code: 0, userInfo: nil)))
-            }
-        }
+        self.planetsViewMode.makeRequest()
+        self.peopleViewMode.makeRequest()
+        self.filmsViewMode.makeRequest()
+        self.speciesViewMode.makeRequest()
+        self.vehiclesViewMode.makeRequest()
+        self.starshipsViewMode.makeRequest()
     }
 }
