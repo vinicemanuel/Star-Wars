@@ -18,12 +18,14 @@ enum QueryType: String {
 }
 
 class ResultViewModel: ObservableObject {
-    @Published var planetsViewMode: ResultListViewModel
-    @Published var peopleViewMode: ResultListViewModel
-    @Published var filmsViewMode: ResultListViewModel
-    @Published var speciesViewMode: ResultListViewModel
-    @Published var vehiclesViewMode: ResultListViewModel
-    @Published var starshipsViewMode: ResultListViewModel
+    let planetsViewMode: ResultListViewModel
+    let peopleViewMode: ResultListViewModel
+    let filmsViewMode: ResultListViewModel
+    let speciesViewMode: ResultListViewModel
+    let vehiclesViewMode: ResultListViewModel
+    let starshipsViewMode: ResultListViewModel
+    
+    private var subscriptions = Set<AnyCancellable>()
     
     let query: String
     
@@ -35,6 +37,19 @@ class ResultViewModel: ObservableObject {
         self.speciesViewMode = ResultListViewModel(type: .species, query: query)
         self.vehiclesViewMode = ResultListViewModel(type: .vehicles, query: query)
         self.starshipsViewMode = ResultListViewModel(type: .starships, query: query)
+        
+        self.planetsViewMode.$elements
+            .merge(with: self.peopleViewMode.$elements)
+            .merge(with: self.filmsViewMode.$elements)
+            .merge(with: self.speciesViewMode.$elements)
+            .merge(with: self.vehiclesViewMode.$elements)
+            .merge(with: self.starshipsViewMode.$elements)
+            .receive(on: DispatchQueue.main)
+            .sink { (value) in
+            print(value)
+            self.objectWillChange.send()
+        }
+        .store(in: &subscriptions)
     }
     
     func makeRequests() {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @State var showDetail: Bool = false
-    @StateObject var viewModel = SearchViewModel()
+    @StateObject  var viewModel = SearchViewModel()
     
     var body: some View {
         NavigationView {

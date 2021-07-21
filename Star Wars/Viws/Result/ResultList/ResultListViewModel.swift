@@ -24,7 +24,7 @@ class ResultListViewModel: ObservableObject {
     
     func makeRequest(page: Int = 1) {
         asyncPromiseWith(url: "\(baseURL)\(type.rawValue)/?search=\(self.query)&page=\(page)")
-            .tryMap({ data -> PeopleQuery in
+            .tryMap({ data -> StarWarsQuery in
                 switch self.type {
                 case .people:
                     return try JSONDecoder().decode(PeopleQuery.self, from: data)
@@ -34,10 +34,17 @@ class ResultListViewModel: ObservableObject {
             })
             .sink(receiveCompletion: { print($0) }, receiveValue: { value in
                 self.starWarsQuery = value
-                
+
                 var nameArray = [String]()
-                value.results.forEach { (person) in
-                    nameArray.append(person.name)
+                
+                switch self.type {
+                case .people:
+                    let peopleQuery = value as! PeopleQuery
+                    peopleQuery.results.forEach { (person) in
+                        nameArray.append(person.name)
+                    }
+                default:
+                    break
                 }
                 
                 self.elements = nameArray

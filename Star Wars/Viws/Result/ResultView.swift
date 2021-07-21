@@ -11,7 +11,13 @@ struct ResultView: View {
     @StateObject var viewModel: ResultViewModel
     
     var body: some View {
-        Text(self.viewModel.query)
+        VStack {
+            Text(self.viewModel.query)
+            ForEach(self.viewModel.peopleViewMode.elements, id: \.self) { value in
+                Text(value)
+            }
+        }
+            .animation(.default)
             .onAppear(perform: {
                 self.viewModel.makeRequests()
             })
