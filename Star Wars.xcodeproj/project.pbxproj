@@ -24,6 +24,7 @@
 		09FC9A6D267FD592007F9F79 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC9A6C267FD592007F9F79 /* SearchView.swift */; };
 		09FC9A6F267FD595007F9F79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09FC9A6E267FD595007F9F79 /* Assets.xcassets */; };
 		09FC9A72267FD595007F9F79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09FC9A71267FD595007F9F79 /* Preview Assets.xcassets */; };
+		348AF4BA27399782003D0B00 /* ResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348AF4B927399782003D0B00 /* ResultListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		09FC9A6E267FD595007F9F79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09FC9A71267FD595007F9F79 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		09FC9A73267FD595007F9F79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		348AF4B927399782003D0B00 /* ResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				098AEB3026A7473F00642D62 /* ResultListView.swift */,
+				348AF4B927399782003D0B00 /* ResultListViewController.swift */,
 				098AEB3326A7475000642D62 /* ResultListViewModel.swift */,
 			);
 			path = ResultList;
@@ -252,6 +255,7 @@
 				098AEB2D26A7467200642D62 /* PeopleQuery.swift in Sources */,
 				098AEB3426A7475000642D62 /* ResultListViewModel.swift in Sources */,
 				09B64DDD2697690100DED488 /* QueryHistory+CoreDataClass.swift in Sources */,
+				348AF4BA27399782003D0B00 /* ResultListViewController.swift in Sources */,
 				0981B4662694EF23008DBFDA /* DatabaseUtil.swift in Sources */,
 				0981B4622694EEB5008DBFDA /* StarWars.xcdatamodeld in Sources */,
 				094F1FED2698BDAD00D8F784 /* ResultViewModel.swift in Sources */,

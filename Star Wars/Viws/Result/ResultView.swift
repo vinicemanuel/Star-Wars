@@ -11,16 +11,67 @@ struct ResultView: View {
     @StateObject var viewModel: ResultViewModel
     
     var body: some View {
-        VStack {
-            Text(self.viewModel.query)
-            ForEach(self.viewModel.peopleViewMode.elements, id: \.self) { value in
-                Text(value)
+        ScrollView(.vertical, showsIndicators: true, content: {
+            VStack(alignment: .leading) {
+                self.getGroupBy(queryType: .films)
+                self.getGroupBy(queryType: .people)
+                self.getGroupBy(queryType: .planets)
+                self.getGroupBy(queryType: .species)
+                self.getGroupBy(queryType: .vehicles)
+                self.getGroupBy(queryType: .starships)
+            }
+        })
+        .navigationTitle(self.viewModel.query)
+        .animation(.default)
+        .onAppear(perform: {
+            self.viewModel.makeRequests()
+        })
+    }
+    
+    func getGroupBy(queryType: QueryType) -> some View {
+        switch queryType {
+        case .planets:
+            return Group {
+                Text(QueryType.planets.rawValue)
+                    .padding(.leading, 10)
+                ResultListView(viewModel: self.viewModel.planetsViewMode)
+            }
+            
+        case .people:
+            return Group {
+                Text(QueryType.people.rawValue)
+                    .padding(.leading, 10)
+                ResultListView(viewModel: self.viewModel.peopleViewMode)
+            }
+            
+        case .films:
+            return Group {
+                Text(QueryType.films.rawValue)
+                    .padding(.leading, 10)
+                ResultListView(viewModel: self.viewModel.filmsViewMode)
+            }
+            
+        case .species:
+            return Group {
+                Text(QueryType.species.rawValue)
+                    .padding(.leading, 10)
+                ResultListView(viewModel: self.viewModel.speciesViewMode)
+            }
+            
+        case .vehicles:
+            return Group {
+                Text(QueryType.vehicles.rawValue)
+                    .padding(.leading, 10)
+                ResultListView(viewModel: self.viewModel.vehiclesViewMode)
+            }
+            
+        case .starships:
+            return Group {
+                Text(QueryType.starships.rawValue)
+                    .padding(.leading, 10)
+                ResultListView(viewModel: self.viewModel.starshipsViewMode)
             }
         }
-            .animation(.default)
-            .onAppear(perform: {
-                self.viewModel.makeRequests()
-            })
     }
 }
 

@@ -24,6 +24,7 @@ class ResultListViewModel: ObservableObject {
     
     func makeRequest(page: Int = 1) {
         asyncPromiseWith(url: "\(baseURL)\(type.rawValue)/?search=\(self.query)&page=\(page)")
+            .receive(on: DispatchQueue.main)
             .tryMap({ data -> StarWarsQuery in
                 switch self.type {
                 case .people:

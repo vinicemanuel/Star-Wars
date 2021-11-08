@@ -7,14 +7,23 @@
 
 import SwiftUI
 
-struct ResultListView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct ResultListView: UIViewControllerRepresentable {
+    @StateObject var viewModel: ResultListViewModel
+    
+    func makeUIViewController(context: Context) -> some ResultListViewController {
+        let viewController = ResultListViewController()
+        viewController.model = self.viewModel
+        
+        return viewController
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
     }
 }
 
 struct ResultListView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultListView()
+        ResultListView(viewModel: ResultListViewModel(type: .people, query: "yoda"))
     }
 }
